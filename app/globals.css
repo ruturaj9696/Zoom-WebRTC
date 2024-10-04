@@ -12,12 +12,12 @@ body {
   }
 }
 
-@layer utilities {
-  .flex-center {
-    @apply flex justify-center items-center;
+@layer utilities{
+  .flex-center{
+    @apply flex justify-center items-center
   }
-  .flex-between {
-    @apply flex justify-between items-center;
+  .flex-between{
+    @apply flex justify-between items-center
   }
 }
 
@@ -87,7 +87,7 @@ body {
 }
 
 /* ==== clerk class override ===== */
-.cl-socialButtonsProviderIcon__github {
+.cl-socialButtonsProviderIcon__github{
   filter: invert(1);
 }
 
