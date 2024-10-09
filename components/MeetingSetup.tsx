@@ -9,7 +9,7 @@ import React, { useEffect, useState } from "react";
 const MeetingSetup = ({
   setIsSetupComplete,
 }: {
-  setIsSetupComplete(val: boolean): () => void;
+  setIsSetupComplete(val: boolean): void;
 }) => {
   const [isMicCamToggledOn, setIsMicCamToggledOn] = useState(false);
   const call = useCall();
