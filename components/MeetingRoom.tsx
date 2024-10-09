@@ -2,10 +2,19 @@ import { cn } from "@/lib/utils";
 import {
   CallControls,
   CallParticipantsList,
+  CallStatsButton,
   PaginatedGridLayout,
   SpeakerLayout,
 } from "@stream-io/video-react-sdk";
 import React, { useState } from "react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { LayoutList } from "lucide-react";
 
 type CallLayout = "grid" | "speaker-left" | "speaker-right";
 const MeetingRoom = () => {
@@ -39,7 +48,30 @@ const MeetingRoom = () => {
         </div>
       </div>
       <div className="fixed bottom-0 flex w-full items-center justify-center gap-5">
-        <CallControls/>
+        <CallControls />
+        <DropdownMenu>
+          <div className="flex items-center">
+            <DropdownMenuTrigger className="cursor-pointer rounded-2xl bg-[#19232d] px-4 py-2 hover:bg-[#4c535b]">
+              <LayoutList size={20} className="text-white" />
+            </DropdownMenuTrigger>
+          </div>
+          <DropdownMenuContent className="border-dark-1 bg-dark-1 text-white">
+            {["Grid", "speaker-right", "speaker-left"].map((item, index) => (
+              <div key={index}>
+                <DropdownMenuItem
+                  className="cursor-pointer"
+                  onClick={() => {
+                    setlayout(item as CallLayout);
+                  }}
+                >
+                  {item}
+                </DropdownMenuItem>
+                <DropdownMenuSeparator className="bg-dark-2" />
+              </div>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
+        <CallStatsButton />
       </div>
     </div>
   );
