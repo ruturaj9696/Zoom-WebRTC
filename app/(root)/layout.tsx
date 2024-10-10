@@ -1,5 +1,14 @@
 import { ReactNode } from 'react';
 import StreamVideoProvider from '@/providers/StreamClientProvider';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "RTC",
+  description: "Real time video calling app",
+  icons: {
+    icon: "/icons/logo.svg",
+  },
+};
 
 const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
   return (
