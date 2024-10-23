@@ -4,10 +4,11 @@
 import { useGetCalls } from "@/hooks/useGetCall";
 import { CallRecording } from "@stream-io/node-sdk";
 import { Call } from "@stream-io/video-react-sdk";
-import { useRouter } from "next/router";
-import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import MeetingCard from "./MeetingCard";
 import { Loader } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
   const { endedCalls, upcomingCalls, callRecordings, isLoading } =
@@ -15,7 +16,7 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
 
   const router = useRouter;
   const [Recordings, setRecordings] = useState<CallRecording[]>([]);
-
+  const { toast } = useToast();
   const getCalls = () => {
     switch (type) {
       case "ended":
@@ -46,6 +47,27 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
         return "";
     }
   };
+
+  useEffect(() => {
+    const fetchRecordings = async () => {
+      try {
+        const callData = await Promise.all(
+          callRecordings.map((meeting) => meeting.queryRecordings)
+        );
+        const recordings = callData
+          .filter((call) => call.recordings.length > 0)
+          .flatMap((call) => call.recordings);
+        setRecordings(recordings);
+        //So what flatmap does
+        //converts 2D array in 1D format [["rec1"],["rec2"],["rec3","rec4"]] into ["rec1","rec2","rec3","rec4"]
+      } catch (error) {
+        toast({
+          title: "Try again later!",
+        });
+      }
+    };
+    if (type === "recordings") fetchRecordings();
+  }, []);
 
   if (isLoading) return <Loader />;
   const calls = getCalls();
