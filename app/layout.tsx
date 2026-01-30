@@ -17,7 +17,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "RTC",
+  title: "callstack",
   description: "Real time video calling app",
   icons: {
     icon: "/icons/logo.svg",
