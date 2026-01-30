@@ -124,7 +124,7 @@ const Home = () => {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                href="/personal-room"
+                href="/home/personal-room"
                 className="flex items-center gap-2 bg-dark-3 hover:bg-dark-4 text-white font-semibold py-4 px-10 rounded-xl border border-dark-4 hover:border-blue-1 transition-all w-full sm:w-auto justify-center"
               >
                 <Users className="w-5 h-5" />

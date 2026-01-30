@@ -2,10 +2,10 @@ import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
 //Creating the protected route
 const protectedRoutes = createRouteMatcher([
-  "/upcoming",
-  "/personal-room",
-  "/previous",
-  "/recordings",
+  "/home/upcoming",
+  "/home/personal-room",
+  "/home/previous",
+  "/home/recordings",
   "/meeting/(.*)",
 ]);
 
