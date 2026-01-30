@@ -1,4 +1,3 @@
-import { auth } from "@clerk/nextjs/server";
 import { UserButton, SignedIn, SignedOut } from "@clerk/nextjs";
 import Link from "next/link";
 import Image from "next/image";
@@ -14,10 +13,7 @@ import {
   LayoutDashboard,
 } from "lucide-react";
 
-const Home = async () => {
-  // Check if user is authenticated
-  const { userId } = await auth();
-
+const Home = () => {
   return (
     <div className="flex flex-col min-h-screen bg-dark-2 text-white">
       {/* Navigation Bar */}
