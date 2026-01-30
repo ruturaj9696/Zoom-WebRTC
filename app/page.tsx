@@ -52,7 +52,7 @@ const Home = () => {
               {/* Show when user IS logged in */}
               <SignedIn>
                 <Link
-                  href="/home"
+                  href="/home-page"
                   className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors px-4 py-2"
                 >
                   <LayoutDashboard className="w-4 h-4" />
@@ -114,7 +114,7 @@ const Home = () => {
 
             <SignedIn>
               <Link
-                href="/home"
+                href="/home-page"
                 className="group flex items-center gap-2 bg-blue-1 hover:bg-blue-600 text-white font-semibold py-4 px-10 rounded-xl transition-all transform hover:scale-105 shadow-lg hover:shadow-blue-1/50 w-full sm:w-auto justify-center"
               >
                 Go to Dashboard
@@ -262,7 +262,7 @@ const Home = () => {
 
             <SignedIn>
               <Link
-                href="/home"
+                href="/home-page"
                 className="group flex items-center gap-2 bg-blue-1 hover:bg-blue-600 text-white font-semibold py-5 px-12 rounded-xl transition-all transform hover:scale-105 shadow-2xl hover:shadow-blue-1/50 text-lg w-full sm:w-auto justify-center"
               >
                 Go to Dashboard
